@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    body{
+        background-color: antiquewhite;
+    }
+    #main
+    {
+        background-color: white;
+        box-shadow: 3px black;
+        border-radius: 10px;
+        height: 600px;
+        width: 300px;
+        align-items: center;
+        justify-content: center;
+        margin-left: 700px;
+    }
+    #r1,#r2,#r3,#r4{
+        border: 2px solid black;
+        background-color: red;
+        border-radius: 100%;
+        height: 40px;
+        width: 40px;
+    }
+   #r5,#r6,#r7,#r8,#r9,#r10,#r11,#r12,#r13,#r14{
+     border: 2px solid black;
+        background-color: rgb(219, 18, 179);
+        border-radius: 100%;
+        height: 40px;
+        width: 40px;
+        align-items: center;
+        justify-content: center;
+   }
+    
+
+   </style>
+ </head>
+ <body>
+    
+    <div align="center" id="main"> 
+        <br>
+        <h1 align="center" >Calculator</h1>
+    
+    <input type="text" id="num1"  onclick = "setfocus('num1')">
+    <br>
+    <br>
+    <input type="text" id="num2"onclick = "setfocus('num2')">
+    <br>
+    <br>
+   
+    <button id="r1" onclick="calculate('+')" SUM >
+        ADD
+    </button>
+    <button id="r2" onclick="calculate('-')">
+        SUB
+    </button>
+    <button id="r3" onclick="calculate('*')">
+        MUL
+    </button>
+    <button id="r4" onclick="calculate('/')">
+        div
+    </button>
+    <br>
+    <br>
+     <button id="r5" onclick="appendNumber(1)">
+        1
+    </button>
+    <button id="r6" onclick="appendNumber(2)">
+        2
+    </button>
+    <button id="r7" onclick="appendNumber(3)">
+        3
+    </button>
+    <br>
+    <br>
+      <button id="r8" onclick="appendNumber(4)">
+        4
+    </button>
+    <button id="r9" onclick="appendNumber(5)">
+        5
+    </button>
+    <button id="r10" onclick="appendNumber(6)">
+        6
+    </button>
+    <br>
+    <br>
+      <button id="r11" onclick="appendNumber(7)">
+        7
+    </button>
+    <button id="r12" onclick="appendNumber(8)">
+        8
+    </button>
+    <button id="r13" onclick="appendNumber(9)">
+        9
+    </button>
+    <br>
+    <br>
+    <button id="r14" onclick="appendNumber(0)">
+        0
+    </button>
+    <br>
+    <br>
+    Result:<input type="text" id="out">
+    <br>
+    </div>
+    <script>
+        let a='num1';
+        function setfocus(inputId){
+            a=inputId;
+
+        }
+        function appendNumber(Number){
+            document.getElementById(a).value+= Number
+            
+        }
+        function calculate(operator){
+            let num1 = parseInt(document.getElementById('num1').value);
+            let num2 = parseInt(document.getElementById('num2').value);
+            let result;
+            switch(operator){
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/': result = num2 !== 0 ? num1 / num2 : "cannot divide by zero"; break;
+            }
+            document.getElementById('out').value = result;
+        }
+        
+    </script>
+    
+
+ </body>
+ </html>
